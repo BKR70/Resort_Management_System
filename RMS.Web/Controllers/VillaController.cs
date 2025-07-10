@@ -15,5 +15,9 @@ namespace RMS.Web.Controllers
             var villaList = _db.Villas.ToList();
             return View(villaList);
         }
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
