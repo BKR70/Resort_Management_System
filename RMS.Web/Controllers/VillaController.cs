@@ -23,6 +23,10 @@ namespace RMS.Web.Controllers
         [HttpPost]
         public IActionResult Create(Villa obj)
         {
+            if(obj.Name.Length < 2)
+            {
+                ModelState.AddModelError("name", "Name lenght must be greater than one");
+            }
             if (ModelState.IsValid)
             {
                 _db.Villas.Add(obj);
