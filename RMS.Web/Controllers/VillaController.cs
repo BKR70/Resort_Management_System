@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using RMS.Domain.Entities;
 using RMS.Infrastructure.Data;
 
 namespace RMS.Web.Controllers
@@ -18,6 +19,13 @@ namespace RMS.Web.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Villa obj)
+        {
+            _db.Villas.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
