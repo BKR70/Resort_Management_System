@@ -37,6 +37,7 @@ namespace RMS.Web.Controllers
         }
         public IActionResult Update(int id)
         {
+            // Ways to retrieve in EF Core
             Villa? ob = _db.Villas.FirstOrDefault(x => x.Id == id);
             if(ob == null)
             {
