@@ -35,5 +35,14 @@ namespace RMS.Web.Controllers
             }
             return View();
         }
+        public IActionResult Update(int id)
+        {
+            Villa? ob = _db.Villas.FirstOrDefault(x => x.Id == id);
+            if(ob == null)
+            {
+                return NotFound();
+            }
+            return View(ob);
+        }
     }
 }
