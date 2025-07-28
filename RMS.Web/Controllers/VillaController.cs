@@ -45,5 +45,16 @@ namespace RMS.Web.Controllers
             }
             return View(ob);
         }
+        [HttpPost]
+        public IActionResult Update(Villa obj)
+        {
+            if (ModelState.IsValid && obj.Id > 0)
+            {
+                _db.Villas.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }
