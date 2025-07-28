@@ -41,7 +41,7 @@ namespace RMS.Web.Controllers
             Villa? ob = _db.Villas.FirstOrDefault(x => x.Id == id);
             if(ob == null)
             {
-                return NotFound();
+                return RedirectToAction("Error", "Home");
             }
             return View(ob);
         }
